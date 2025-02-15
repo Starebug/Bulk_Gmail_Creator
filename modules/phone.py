@@ -56,33 +56,3 @@ def fetch_sms_with_retry(order_id, max_retries=10, delay=5):
         retries += 1
     return None
 
-
-# def get_phone_number(country="ID"):
-#     """
-#     Request a phone number from SMSPVA.com for the specified country.
-#     Expected response format: "ACCESS_NUMBER:PHONE_NUMBER:REQUEST_ID"
-#     """
-#     url = "https://api.sms-pva.com/stubs/handler_api.php"  
-#     params = {
-#         "api_key": SMS_API_KEY,  
-#         "action": "getNumber",
-#         "service": "go",  
-#         "country": country,
-#     }
-#     response = requests.get(url, params=params)
-    
-#     raw_response = response.text.strip()
-#     raw_response = response.sub(r'[^\x20-\x7E]', '', raw_response)
-#     print(f"Raw response for {country}: {raw_response}")
-    
-#     data = raw_response.split(":")
-#     print(f"Data split: {data} (length: {len(data)})")
-    
-#     if data[0] != "ACCESS_NUMBER":
-#         raise Exception(f"Failed to get phone number: {raw_response}")
-#     if len(data) < 3:
-#         raise Exception(f"Unexpected response format: {raw_response}")
-    
-#     phone_number = data[1]
-#     request_id = data[2]
-#     return phone_number, request_id

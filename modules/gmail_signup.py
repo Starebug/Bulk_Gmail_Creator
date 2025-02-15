@@ -3,7 +3,6 @@ from selenium.webdriver.support.ui import Select
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
-from selenium.webdriver.common.keys import Keys
 from datetime import datetime
 import random
 import time
@@ -178,12 +177,6 @@ def open_gmail_signup():
                 driver.execute_script("arguments[0].scrollIntoView({block: 'center'});", select_object)
                 safe_click(select_object)
 
-                # WebDriverWait(driver, 15).until(
-                #     EC.element_to_be_clickable((By.CSS_SELECTOR, "button[jsname='LgbsSe']"))
-                # )
-                # select_object = driver.find_element(By.CSS_SELECTOR, "button[jsname='LgbsSe']")
-                # safe_click(select_object)
-
                 WebDriverWait(driver, 15).until(
                     EC.visibility_of_element_located((By.ID, 'phoneNumberId'))
                 )
@@ -270,16 +263,6 @@ def open_gmail_signup():
 
     print("Page Title:", driver.title)
     driver.quit() 
-
-    # otp = phone.get_sms(request_id)
-    # driver.find_element(By.NAME, "code").send_keys(otp)
-    # delays.human_like_delay()
-    # driver.find_element(By.ID, "next").click()
-    # delays.human_like_delay(2, 4)
-    
-    
-
-
 
 
 accounts_created = 0

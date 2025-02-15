@@ -1,4 +1,3 @@
-# modules/captcha.py
 import requests
 import time
 import config
